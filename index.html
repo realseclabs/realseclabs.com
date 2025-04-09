@@ -128,6 +128,15 @@
         select:focus {
             outline: none; /* Remove default focus outline */
         }
+
+        section {
+            scroll-margin-top: 80px; /* Adjust this value to match your header height */
+        }
+
+        #open-source-projects {
+            margin-top: 5rem; /* Adjust this value as needed */
+            scroll-margin-top: 120px; /* Matches the offset in JavaScript */
+        }
     </style>
 </head>
 
@@ -354,7 +363,7 @@
             </div>
 
             <!-- Open Source Projects Section -->
-            <div id="open-source-projects" class="bg-secondary rounded-xl p-6 border border-gray-700">
+            <div id="open-source-projects" class="bg-secondary rounded-xl p-6 border border-gray-700 mt-12">
                 <h3 class="text-2xl font-bold mb-4 flex items-center">
                     <i class="bi bi-github text-primary mr-3"></i>
                     Open Source Projects
@@ -961,7 +970,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-medium mb-1">Location</h4>
-                                    <p class="text-gray-300">1234 Cyber Street, Tech District, Silicon Valley, CA 94025</p>
+                                    <p class="text-gray-300">Mangaluru,Karnataka,India</p>
                                 </div>
                             </div>
                             
@@ -971,8 +980,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-medium mb-1">Email</h4>
-                                    <p class="text-gray-300">info@realseclabs.com</p>
-                                    <p class="text-gray-300">support@realseclabs.com</p>
+                                    <p class="text-gray-300">glanloyand@realseclabs.com</p>
                                 </div>
                             </div>
                             
@@ -982,8 +990,8 @@
                                 </div>
                                 <div>
                                     <h4 class="font-medium mb-1">Phone</h4>
-                                    <p class="text-gray-300">+1 (555) 123-4567</p>
-                                    <p class="text-gray-300">+1 (555) 987-6543</p>
+                                    <p class="text-gray-300"></p>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -1019,11 +1027,11 @@
                 <div>
                     <div class="flex items-center mb-6">
                         <div class="text-primary text-3xl mr-2">
-                            <i class="bi bi-shield-lock-fill"></i>
+                            
                         </div>
                         <div class="font-heading font-bold text-xl">
-                            <span class="text-primary">REAL</span><span class="text-white">SEC</span>
-                            <span class="text-light-gray text-sm">LABS</span>
+                            <img src="./assets/images/RealSecLabs-Logo-nobg.png" alt="RealSec Labs Logo" class="h-10 mr-3" onclick="location.href='#home';">
+
                         </div>
                     </div>
                     <p class="text-gray-400 mb-6">
@@ -1175,7 +1183,7 @@
                     // Scroll to section with offset
                     const targetId = this.getAttribute('href').substring(1);
                     const targetElement = document.getElementById(targetId);
-                    const offset = 80; // Adjust this value based on your header height
+                    const offset = 120; // Adjust this value to ensure the section is fully visible
                     const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
                     const offsetPosition = elementPosition - offset;
 
