@@ -122,6 +122,11 @@
         }
         select {
             background-image: none; /* Remove default dropdown arrow */
+            cursor: pointer; /* Change cursor to pointer for better UX */
+        }
+
+        select:focus {
+            outline: none; /* Remove default focus outline */
         }
     </style>
 </head>
@@ -771,14 +776,15 @@
                 </p>
                 <!-- Dropdown for Resume Options -->
                 <div class="relative mb-6">
-                    <label for="resume-type" class="block text-sm font-medium mb-2">Domain Hiring For</label>
+                    <label for="resume-type" class="block text-sm font-medium mb-2 text-gray-300">Domain Hiring For</label>
                     <div class="relative">
-                        <select id="resume-type" class="w-full bg-secondary border border-gray-700 rounded-md py-3 px-4 focus:outline-none focus:ring-2 focus:ring-primary appearance-none">
+                        <select id="resume-type" class="w-full bg-[#232323] border border-gray-700 rounded-md py-3 px-4 text-gray-300 focus:outline-none focus:ring-2 focus:ring-primary appearance-none">
                             <option value="" disabled selected>Select a domain</option>
                             <option value="blue-team">Blue Teaming (Defensive Security)</option>
                             <option value="red-team">Red Teaming (Offensive Security)</option>
                             <option value="purple-team">Purple Teaming (Offensive + Defensive Security)</option>
                         </select>
+                        <!-- Custom Dropdown Arrow -->
                         <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                             <i class="bi bi-chevron-down text-gray-400"></i>
                         </div>
@@ -1344,6 +1350,27 @@
             const repoContainer = document.getElementById('github-repos');
             const repoLoader = document.getElementById('repo-loader');
 
+            // Language color mapping
+            const languageColors = {
+                JavaScript: '#f1e05a',
+                Python: '#3572A5',
+                Java: '#b07219',
+                HTML: '#e34c26',
+                CSS: '#563d7c',
+                TypeScript: '#2b7489',
+                Ruby: '#701516',
+                PHP: '#4F5D95',
+                C: '#555555',
+                'C++': '#f34b7d',
+                Go: '#00ADD8',
+                Shell: '#89e051',
+                Swift: '#ffac45',
+                Kotlin: '#A97BFF',
+                Rust: '#dea584',
+                Dart: '#00B4AB',
+                // Add more languages and colors as needed
+            };
+
             // Show the loader
             repoLoader.style.display = 'flex';
 
@@ -1357,13 +1384,18 @@
                         const repoCard = document.createElement('div');
                         repoCard.className = 'tool-card p-4 rounded-lg border border-gray-700 flex flex-col justify-between';
 
+                        const languageColor = languageColors[repo.language] || '#cccccc'; // Default color if language not found
+
                         repoCard.innerHTML = `
                             <div>
                                 <h4 class="font-bold mb-2">${repo.name}</h4>
                                 <p class="text-gray-300 text-sm mb-3">${repo.description || 'No description available.'}</p>
                             </div>
                             <div class="mt-auto flex items-center justify-between">
-                                <span class="text-xs text-gray-400">${repo.language || 'N/A'}</span>
+                                <div class="flex items-center">
+                                    <span class="h-3 w-3 rounded-full mr-2" style="background-color: ${languageColor};"></span>
+                                    <span class="text-xs text-gray-400">${repo.language || 'N/A'}</span>
+                                </div>
                                 <a href="${repo.html_url}" target="_blank" class="text-primary hover:underline text-sm">
                                     View Repository <i class="bi bi-box-arrow-up-right text-xs ml-1"></i>
                                 </a>
