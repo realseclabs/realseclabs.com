@@ -31,6 +31,92 @@ RealSec Labs is a modern cybersecurity solutions platform designed to provide cu
     </div>
 </div>
 
+<!-- Success Modal -->
+<div id="successModal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#1e1e1e] rounded-xl max-w-md w-full modal-content relative">
+        <!-- Close Button -->
+        <button onclick="hideSuccessModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+            <i class="bi bi-x-lg"></i>
+        </button>
+        <div class="p-6 text-center">
+            <h2 class="text-2xl font-bold mb-4 text-primary">Resume Downloaded!</h2>
+            <p id="successMessage" class="text-gray-300 mb-6">
+                Your resume has been successfully downloaded. Thank you for your interest!
+            </p>
+            <button onclick="hideSuccessModal()" class="bg-primary hover:bg-orange-600 text-white py-2 px-6 rounded-md font-medium transition-all">
+                Close
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+function handleResumeDownload() {
+    const resumeType = document.getElementById('resume-type').value;
+
+    if (!resumeType) {
+        alert('Please select a resume type');
+        return;
+    }
+
+    let resumeUrl = '';
+    let successMessage = '';
+    switch (resumeType) {
+        case 'blue-team':
+            resumeUrl = 'assets/Resume/Glan Loyan Dsouza - Blue Teaming(Defensive Security).pdf';
+            successMessage = 'Your Blue Teaming resume is being downloaded!';
+            break;
+        case 'red-team':
+            resumeUrl = 'assets/Resume/Glan Loyan Dsouza - Red Teaming(Offensive Security).pdf';
+            successMessage = 'Your Red Teaming resume is being downloaded!';
+            break;
+        case 'purple-team':
+            resumeUrl = 'assets/Resume/Glan Loyan Dsouza - Purple Teaming.pdf';
+            successMessage = 'Your Purple Teaming resume is being downloaded!';
+            break;
+        default:
+            alert('Invalid selection');
+            return;
+    }
+
+    // Show the success modal with a custom message
+    showSuccessModal(successMessage);
+
+    // Trigger the download after a short delay
+    setTimeout(() => {
+        const link = document.createElement('a');
+        link.href = resumeUrl;
+        link.download = resumeUrl.split('/').pop(); // Extract the file name from the URL
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }, 1000); // Delay to allow the modal to appear
+
+    hideResumeModal(); // Close the first modal
+}
+
+function showSuccessModal(message) {
+    console.log('Showing success modal with message:', message);
+    const successModal = document.getElementById('successModal');
+    const successMessage = document.getElementById('successMessage');
+    successMessage.textContent = message; // Set the custom message
+    successModal.classList.remove('hidden'); // Show the modal
+    document.body.style.overflow = 'hidden'; // Disable body scroll
+}
+
+function hideSuccessModal() {
+    const successModal = document.getElementById('successModal');
+    successModal.classList.add('hidden');
+    document.body.style.overflow = 'auto'; // Re-enable body scroll
+}
+</script>
+
+<style>
+.hidden {
+    display: none;
+}
+</style>
+
 ---
 
 ## Technologies Used
