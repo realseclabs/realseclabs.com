@@ -137,6 +137,9 @@
             margin-top: 5rem; /* Adjust this value as needed */
             scroll-margin-top: 120px; /* Matches the offset in JavaScript */
         }
+        .filter-orange {
+            filter: brightness(0) saturate(100%) invert(38%) sepia(100%) saturate(1000%) hue-rotate(0deg) brightness(100%) contrast(100%);
+        }
     </style>
 </head>
 
@@ -247,12 +250,15 @@
                         SOC monitoring, incident analysis, log reviews, and threat hunting — here’s a showcase of the projects and client engagements where I’ve protected systems and prevented breaches.                    </p>
                 </div>
                 <div class="bg-secondary p-6 rounded-xl border border-gray-700 transition-all duration-300 card-hover">
-                    <div class="text-primary text-4xl mb-4">
-                        <i class="bi bi-people"></i>
+                    <div class="flex items-center mb-4">
+                        <!-- Let'sDefend Logo with Orange Tint -->
+                        <img src="https://app.letsdefend.io/_next/image?url=https%3A%2F%2Fapp-ld-img.s3.us-east-2.amazonaws.com%2Fcommon%2Fld_logo_v2.png&w=256&q=75" 
+                             alt="Let'sDefend Logo" 
+                             class="w-10 h-10 mr-3 filter-orange">
+                        <h3 class="text-xl font-bold">Let'sDefend Profile</h3>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">LetsDefend Profile</h3>
                     <p class="text-gray-300">
-                        Hands-on experience with real-time alerts, incident simulations, and blue team scenarios. My LetsDefend public profile highlights the cases I’ve resolved and skills I’ve earned along the way.
+                        Hands-on experience with real-time alerts, incident simulations, and blue team scenarios. My Let'sDefend public profile highlights the cases I’ve resolved and skills I’ve earned along the way.
                     </p>
                     <!-- Link to Let'sDefend Profile -->
                     <div class="mt-4">
