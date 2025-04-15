@@ -141,6 +141,26 @@
         .filter-orange {
             filter: brightness(0) saturate(100%) invert(38%) sepia(100%) saturate(1000%) hue-rotate(0deg) brightness(100%) contrast(100%);
         }
+        .iframe-container {
+            height: 100%;
+            overflow: hidden; /* Hide scrollbar by default */
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .iframe-container::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .iframe-container:hover {
+            overflow: auto; /* Show scrollbar on hover */
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;     /* Firefox */
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;             /* Chrome, Safari, Opera */
+        }
     </style>
 </head>
 
@@ -317,10 +337,20 @@
                         </a>
                     </div>
                 </div>
-                <!-- Card 1 -->
-                <div class="bg-secondary p-6 rounded-xl border border-gray-700 flex flex-col items-center justify-center h-40">
-                    <i class="bi bi-search text-primary text-4xl mb-4"></i>
-                    <div class="loading-spinner w-8 h-8 border-4 border-gray-300 border-t-primary rounded-full animate-spin"></div>
+                <!-- Card 5: LetsDefend Profile -->
+                <div class="bg-secondary p-6 rounded-xl border border-gray-700 transition-all duration-300 card-hover flex flex-col items-center text-center h-full">
+                    <br>
+                    <img src="https://premium-storefronts.s3.amazonaws.com/storefronts/letsdefend/assets/logo.png" alt="letsdefend Profile" class="w-22 h-9 mb-4 filter-orange">
+                    <br>
+                    <h3 class="text-xl font-bold mb-2">LetsDefend SOC Analyst</h3>
+                    <p class="text-gray-300">
+                        Explore my bug bounty reports and security contributions on HackerOne.
+                    </p>
+                    <div class="mt-4">
+                        <a href="https://hackerone.com/glanloyandsouza" target="_blank" class="text-primary hover:underline inline-flex items-center">
+                            View My HackerOne Profile <i class="bi bi-box-arrow-up-right ml-2"></i>
+                        </a>
+                    </div>
                 </div>
                 <!-- Card 2 -->
                 <div class="bg-secondary p-6 rounded-xl border border-gray-700 flex flex-col items-center justify-center h-40">
@@ -348,8 +378,9 @@
         <!-- Certifications Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Certification 1 -->
-            <div class="bg-secondary p-6 rounded-xl border border-gray-700 flex flex-col items-center text-center">
-                <img src="./assets/images/CEH.png" alt="CEH Certification" class="w-16 h-16 mb-4 filter-orange">
+
+            <div class="bg-secondary p-6 rounded-xl border border-gray-700 flex flex-col items-center text-center transition-all duration-300 card-hover">
+                <img src="./assets/images/CEH.png" alt="CEH Certification" class="w-16 h-14 mb-4 filter-orange">
                 <h3 class="text-xl font-bold mb-2">Certified Ethical Hacker (CEH)</h3>
                 <p class="text-gray-300">
                     Demonstrates expertise in identifying and mitigating vulnerabilities in systems and networks.
@@ -360,8 +391,10 @@
             </div>
             
             <!-- Certification 2 -->
-            <div class="bg-secondary p-6 rounded-xl border border-gray-700 flex flex-col items-center text-center">
-                <img src="https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png" alt="Microsoft Azure Certification" class="w-24 h-10 mb-4 filter-orange">
+            <div class="bg-secondary p-6 rounded-xl border border-gray-700 flex flex-col items-center text-center transition-all duration-300 card-hover">
+                <br>
+                <img src="https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png" alt="Microsoft Azure Certification" class="w-24 h-7 mb-4 filter-orange">
+                
                 <h3 class="text-xl font-bold mb-2">Microsoft Azure: Identity and Access Management</h3>
                 <p class="text-gray-300">
                     Validates foundational skills in risk management, threat analysis, and security controls.
@@ -372,7 +405,7 @@
             </div>
             
             <!-- Certification 3 -->
-            <div class="bg-secondary p-6 rounded-xl border border-gray-700 flex flex-col items-center text-center h-full">
+            <div class="bg-secondary p-6 rounded-xl border border-gray-700 flex flex-col items-center text-center transition-all duration-300 card-hover">
                 <img src="https://app.letsdefend.io/_next/image?url=https%3A%2F%2Fapp-ld-img.s3.us-east-2.amazonaws.com%2Fcommon%2Fld_logo_v2.png&w=256&q=75" alt="LetsDefend SOC Analyst" class="w-16 h-16 mb-4 filter-orange">
                 <h3 class="text-xl font-bold mb-2">LetsDefend SOC Analyst</h3>
                 <p class="text-gray-300 mb-4">
@@ -385,7 +418,7 @@
             </div>
 
             <!-- Certification 4 (Spinner Loader) -->
-            <div class="bg-secondary p-6 rounded-xl border border-gray-700 flex flex-col items-center text-center">
+            <div class="bg-secondary p-6 rounded-xl border border-gray-700 flex flex-col items-center text-center transition-all duration-300 card-hover">
                 <img src="https://cybersapiens.com.au/wp-content/uploads/2022/03/cybersapiens-logo-menu.png" alt="Microsoft Azure Certification" class="w-24 h-24 mb-4 filter-orange">
                 <h3 class="text-xl font-bold mb-2">Cyber Security And Threat Hunting </h3>
                 <p class="text-gray-300">
@@ -398,7 +431,7 @@
 
             <!-- Certification 5 (Spinner Loader) -->
             <!-- Certification 4 (Spinner Loader) -->
-            <div class="bg-secondary p-6 rounded-xl border border-gray-700 flex flex-col items-center text-center">
+            <div class="bg-secondary p-6 rounded-xl border border-gray-700 flex flex-col items-center text-center transition-all duration-300 card-hover">
                 <img src="https://cybersapiens.com.au/wp-content/uploads/2022/03/cybersapiens-logo-menu.png" alt="Microsoft Azure Certification" class="w-24 h-24 mb-4 filter-orange">
                 <h3 class="text-xl font-bold mb-2">Certified Ethical Hacker</h3>
                 <p class="text-gray-300">
@@ -442,7 +475,7 @@
             </div>
             <div class="p-6 text-center">
                 <!-- Main Title -->
-                <h2 class="text-2xl font-bold mb-4">Let’s Build Secure Futures Together</h2>
+                <h2 class="text-2xl font-bold mb-4">Let's Build Secure Futures Together</h2>
                 <!-- Subtitle -->
                 <p class="text-gray-300 mb-6">
                     Whether you're hiring, collaborating, or exploring — my resume is just a click away.
@@ -514,33 +547,71 @@
     </div>
 
     <!-- Blog Section -->
-    <section id="linkedin" class="py-16 px-4">
-    <div class="container mx-auto">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4"><span class="text-primary">LinkedIn</span> Presence</h2>
-            <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
-            <p class="text-lg text-gray-300 max-w-3xl mx-auto">
-                Let’s Connect & Collaborate in Cybersecurity
-            </p>
+    <!-- LinkedIn Presence Section (Normal Slider Displaying 3 Cards at a Time) -->
+<section id="linkedin" class="py-16 px-4">
+  <div class="container mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">
+        <span class="text-primary">LinkedIn</span> Presence
+      </h2>
+      <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+      <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+        Let’s Connect & Collaborate in Cybersecurity
+      </p>
+    </div>
+    
+    <div class="relative">
+      <!-- Slider container; added px-8 for horizontal padding -->
+      <div id="linkedin-slider" class="flex space-x-8 overflow-hidden scrollbar-hide px-8">
+        <!-- Card 1: Embedded LinkedIn Post -->
+        <div class="bg-secondary rounded-xl border-2 border-gray-700 shadow-md flex-none w-80 transition-all duration-300 card-hover">
+          <div class="iframe-container w-full h-full">
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7313167481118855168?collapsed=1" 
+                    height="350" width="100%" frameborder="0" allowfullscreen=""
+                    title="Embedded post"></iframe>
+          </div>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Card 1 -->
-            <div class="bg-secondary rounded-xl border border-gray-700 flex items-center justify-center h-48">
-                <div class="loading-spinner w-8 h-8 border-4 border-gray-300 border-t-primary rounded-full animate-spin"></div>
-            </div>
-            
-            <!-- Card 2 -->
-            <div class="bg-secondary rounded-xl border border-gray-700 flex items-center justify-center h-48">
-                <div class="loading-spinner w-8 h-8 border-4 border-gray-300 border-t-primary rounded-full animate-spin"></div>
-            </div>
-            
-            <!-- Card 3 -->
-            <div class="bg-secondary rounded-xl border border-gray-700 flex items-center justify-center h-48">
-                <div class="loading-spinner w-8 h-8 border-4 border-gray-300 border-t-primary rounded-full animate-spin"></div>
-            </div>
+        <!-- Card 2: Embedded LinkedIn Post -->
+        <div class="bg-secondary rounded-xl border-2 border-gray-700 shadow-md flex-none w-80 transition-all duration-300 card-hover">
+          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7233131420234178560?collapsed=1" 
+                  height="350" width="100%" frameborder="0" allowfullscreen=""
+                  title="Embedded post"></iframe>
         </div>
+        
+        <!-- Card 3: Embedded LinkedIn Post -->
+        <div class="bg-secondary rounded-xl border-2 border-gray-700 shadow-md flex-none w-80 transition-all duration-300 card-hover">
+          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7092454064566779904?collapsed=1" 
+                  height="350" width="100%" frameborder="0" allowfullscreen=""
+                  title="Embedded post"></iframe>
+        </div>
+        
+        <!-- Card 4: Embedded LinkedIn Post -->
+        <div class="bg-secondary rounded-xl border-2 border-gray-700 shadow-md flex-none w-80 transition-all duration-300 card-hover">
+          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7092528344910430208?collapsed=1" 
+                  height="350" width="100%" frameborder="0" allowfullscreen=""
+                  title="Embedded post"></iframe>
+        </div>
+        
+        <!-- Card 5: Embedded LinkedIn Post -->
+        <div class="bg-secondary rounded-xl border-2 border-gray-700 shadow-md flex-none w-80 transition-all duration-300 card-hover">
+          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7038402666753925120?collapsed=1" 
+                  height="350" width="100%" frameborder="0" allowfullscreen=""
+                  title="Embedded post"></iframe>
+        </div>
+        
+        <!-- Add more cards as needed -->
+      </div>
+      
+      <!-- Slider Controls -->
+      <button id="prev-btn" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-primary/50 p-2 rounded-full">
+        <i class="bi bi-chevron-left text-white"></i>
+      </button>
+      <button id="next-btn" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-primary/50 p-2 rounded-full">
+        <i class="bi bi-chevron-right text-white"></i>
+      </button>
     </div>
+  </div>
 </section>
 
     <!-- Contact Section -->
@@ -791,15 +862,17 @@
 
                     // Scroll to section with offset
                     const targetId = this.getAttribute('href').substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    const offset = 120; // Adjust this value to ensure the section is fully visible
-                    const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-                    const offsetPosition = elementPosition - offset;
+                    const targetElement = targetId ? document.getElementById(targetId) : null;
+                    if (targetElement) {
+                        const offset = 120; // Adjust this value to ensure the section is fully visible
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                        const offsetPosition = elementPosition - offset;
 
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
                 });
             });
         });
@@ -1030,5 +1103,38 @@
         });
     </script>
 <script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+<script>
+    const slider = document.getElementById('linkedin-slider');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    prevBtn.addEventListener('click', function() {
+         slider.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', function() {
+         slider.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+</script>
+<script>
+  const slider = document.getElementById('linkedin-slider');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  
+  // Get the width and margin of one card (adjust the gap if needed; here 32px equals space-x-8)
+  const card = slider.querySelector('.card-hover');
+  let cardWidth = card.offsetWidth;
+  // Calculate total scroll amount for 3 cards (card width + gap)
+  let gap = 32; // in pixels (adjust if your Tailwind spacing changes)
+  let scrollAmount = (cardWidth + gap) * 3;
+  
+  prevBtn.addEventListener('click', function() {
+    slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+
+  nextBtn.addEventListener('click', function() {
+    slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
+</script>
 	</body>
 </html>
