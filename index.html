@@ -1138,5 +1138,48 @@
     slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
   });
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const contactModalForm = document.getElementById('contactModalForm');
+  if (contactModalForm) {
+    contactModalForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Retrieve and trim form values
+      const name = document.getElementById('modal-name').value.trim();
+      const email = document.getElementById('modal-email').value.trim();
+      const domain = document.getElementById('hiring-domain').value;
+      
+      // Basic validation
+      if (!name || !email || !domain) {
+        alert('Please fill out all fields');
+        return;
+      }
+      
+      // Email format validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address');
+        return;
+      }
+      
+      // Construct mailto URL
+      // Change "your-email@example.com" to the recipient's email address.
+      const subject = encodeURIComponent(`Get in Touch from ${name}`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nDomain: ${domain}`);
+      const mailtoLink = `mailto:glanloyand@realseclabs.com?subject=${subject}&body=${body}`;
+      
+      // Open the user's default mail client with the pre-filled data
+      window.location.href = mailtoLink;
+      
+      // Optionally, you can reset the form and hide the modal after a slight delay
+      setTimeout(() => {
+        contactModalForm.reset();
+        hideContactModal();
+      }, 1000);
+    });
+  }
+});
+</script>
 	</body>
 </html>
