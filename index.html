@@ -1057,25 +1057,24 @@
             const repoContainer = document.getElementById('github-repos');
             const repoLoader = document.getElementById('repo-loader');
 
-            // Language color mapping
+            // Language color mapping (you can expand this list as needed)
             const languageColors = {
                 JavaScript: '#f1e05a',
-                Python: '#3572A5',
-                Java: '#b07219',
                 HTML: '#e34c26',
                 CSS: '#563d7c',
+                Python: '#3572A5',
+                Java: '#b07219',
                 TypeScript: '#2b7489',
+                Shell: '#89e051',
                 Ruby: '#701516',
                 PHP: '#4F5D95',
                 C: '#555555',
                 'C++': '#f34b7d',
                 Go: '#00ADD8',
-                Shell: '#89e051',
+                Rust: '#dea584',
                 Swift: '#ffac45',
                 Kotlin: '#A97BFF',
-                Rust: '#dea584',
-                Dart: '#00B4AB',
-                // Add more languages and colors as needed
+                // Add more languages and their colors as needed
             };
 
             // Show the loader
@@ -1088,28 +1087,47 @@
                     repoLoader.style.display = 'none';
 
                     repos.forEach(repo => {
-                        const repoCard = document.createElement('div');
-                        repoCard.className = 'tool-card p-4 rounded-lg border border-gray-700 flex flex-col justify-between';
+                        // Fetch languages for each repository
+                        fetch(repo.languages_url)
+                            .then(response => response.json())
+                            .then(languages => {
+                                const repoCard = document.createElement('div');
+                                repoCard.className = 'tool-card p-4 rounded-lg border border-gray-700 flex flex-col justify-between';
 
-                        const languageColor = languageColors[repo.language] || '#cccccc'; // Default color if language not found
+                                // Format languages with color icons (displayed horizontally)
+                                const languageList = Object.keys(languages)
+                                    .map(language => {
+                                        const color = languageColors[language] || '#cccccc'; // Default color if not found
+                                        return `<span class="flex items-center space-x-2">
+                                                  <span class="w-3 h-3 rounded-full" style="background-color: ${color};"></span>
+                                                  <span>${language}</span>
+                                                </span>`;
+                                    })
+                                    .join(''); // No line breaks, so they appear inline
 
-                        repoCard.innerHTML = `
-                            <div>
-                                <h4 class="font-bold mb-2">${repo.name}</h4>
-                                <p class="text-gray-300 text-sm mb-3">${repo.description || 'No description available.'}</p>
-                            </div>
-                            <div class="mt-auto flex items-center justify-between">
-                                <div class="flex items-center">
-                                    <span class="h-3 w-3 rounded-full mr-2" style="background-color: ${languageColor};"></span>
-                                    <span class="text-xs text-gray-400">${repo.language || 'N/A'}</span>
-                                </div>
-                                <a href="${repo.html_url}" target="_blank" class="text-primary hover:underline text-sm">
-                                    View Repository <i class="bi bi-box-arrow-up-right text-xs ml-1"></i>
-                                </a>
-                            </div>
-                        `;
+                                repoCard.innerHTML = `
+  <div>
+    <h4 class="font-bold mb-2">${repo.name}</h4>
+    <p class="text-gray-300 text-sm mb-3">${repo.description || 'No description available.'}</p>
+  </div>
+  <div class="mt-auto flex flex-col">
+    <div class="flex flex-wrap gap-4 text-xs text-gray-400 mb-4">
+      ${languageList}
+    </div>
+    <div class="flex justify-between items-center">
+      <div></div> <!-- Empty div to ensure alignment -->
+      <a href="${repo.html_url}" target="_blank" class="text-primary hover:underline text-sm">
+        View Repository <i class="bi bi-box-arrow-up-right text-xs ml-1"></i>
+      </a>
+    </div>
+  </div>
+`;
 
-                        repoContainer.appendChild(repoCard);
+                                repoContainer.appendChild(repoCard);
+                            })
+                            .catch(error => {
+                                console.error(`Error fetching languages for ${repo.name}:`, error);
+                            });
                     });
                 })
                 .catch(error => {
